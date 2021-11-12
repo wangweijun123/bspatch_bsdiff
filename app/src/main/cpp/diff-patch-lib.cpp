@@ -7,6 +7,9 @@
 #define LOGW(...) __android_log_print(ANDROID_LOG_WARN,TAG ,__VA_ARGS__) // 定义LOGW类型
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,TAG ,__VA_ARGS__) // 定义LOGE类型
 #define LOGF(...) __android_log_print(ANDROID_LOG_FATAL,TAG ,__VA_ARGS__) // 定义LOGF类型
+
+// error: undefined reference to 'bsdiff_main(int, char**)'
+// C++引入c的头文件必须加 extern "C", 表示这是c的实现
 extern "C"
 {
 #include "bsdiff.h"
@@ -31,7 +34,7 @@ Java_com_yodosmart_bsdiffbspatch_DiffPatchUtil_diff(JNIEnv *env, jclass type, js
     argv[3] = (char *)patchPath;
 
     int ret = bsdiff_main(argc,argv);
-
+    // 记得release
     env->ReleaseStringUTFChars(oldPath_, oldPath);
     env->ReleaseStringUTFChars(newPath_, newPath);
     env->ReleaseStringUTFChars(patchPath_, patchPath);

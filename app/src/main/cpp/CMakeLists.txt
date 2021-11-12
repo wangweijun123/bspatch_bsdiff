@@ -14,7 +14,7 @@ project("bsdiffbspatch")
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
-# 注意是相对目录的c源文件
+# 注意是相对目录的c源文件,
 add_library( # Sets the name of the library.
             diff-patch
 

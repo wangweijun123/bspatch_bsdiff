@@ -1,0 +1,7 @@
+1 引进xxx.c来的时候, c文件引入的头文件报错比如 <stdlib.h>
+  在cmakelist配置c文件的路劲，注意是相对路劲
+
+2 许多c源文件定义了main函数,需要去掉或者改名字
+
+3 error: undefined reference to 'bsdiff_main(int, char**)'
+C++引入c的头文件必须加 extern "C", 表示这是c的实现
